@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- google fonts icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"/>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=360" /> -->
+
+
+  </head>
+
+  <body>
+    <div class="pageContent">
+    <canvas class="webgl" tabindex="0"></canvas>
+    <!-- :::::::::::::: NAV :::::::::::::: -->
+    <nav>
+      <ul>
+        <li><a href="pyramids.html" class="artemisNav active">The Great Pyramid of Giza</a></li>
+        <li><a href="artemis.html" class="artemisNav">Temple of Artemis</a></li>
+        <li><a href="zeus.html">Statue of Zeus at Olympia</a></li>
+        <li><a href="lighthouse.html">Lighthouse of Alexandria</a></li>
+        <li><a href="rhodes.html">Colossus of Rhodes</a></li>
+        <li><a href="halicarnassus.html">Mausoleum at Halicarnassus</a></li>
+        <li><a href="babylon.html" class="babylonNav">Hanging Gardens of Babylon</a></li>
+        <!-- <a href="landing.html">landing</a>
+        <a href="landing2.html">landing2</a> -->
+      </ul>
+    </nav>
+
+    <!-- :::::::::::::: LEFT TEXT :::::::::::::: -->
+    <div class="leftText">
+      <h2 class="pyramidH2">The Great Pyramid of Giza</h2>
+      <ul>
+        <li>The Great Pyramid is the largest and oldest pyramid of the <span class="clickable-word" data-word="Giza Necropolis">Giza Necropolis</span>. It is the only one considered an ancient wonder. It is also the oldest wonder.</li>
+        <li>The rocky plateau of Giza, that the necropolis was built on, is located in northern Egypt, built between around 2630 - 2500 BC.</li>
+        <li>Each pyramid was built as a <span class="clickable-word" data-word="Tomb">tomb</span> for a <span class="clickable-word" data-word="Pharaoh">Pharaoh</span> from the <span class="clickable-word" data-word="4th dynasty">4th dynasty</span>. They were covered in smooth, white limestone, which would have been visually striking under the Egyptian sun and fit for a king. However, the limestone has since been either removed or eroded.</li>
+        <li>It is assumed each pyramid took 20 - 30 years to build.</li>
+      </ul>
+        <button id="info-button" onclick="window.open('https://www.britannica.com/topic/Pyramids-of-Giza', '_blank')">
+          Find out more <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+    </div>
+
+    <div id="app"></div>
+
+    <div class="popup">The model was clicked</div>     
+    
+    <!-- :::::::::::::: MODAL BUTTON :::::::::::::: -->
+    <button id="openModal" class="circle-button">
+      <span class="material-symbols-outlined">360</span>
+      <!-- <i class="fa-solid fa-rotate"></i> -->
+    </button>
+
+    <!-- :::::::::::::: MODAL :::::::::::::: -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <div class="modalText">
+          <h2>How to navigate</h2>
+          <ul>
+            <li class="leftColumn">Rotate:</li>
+            <li class="rightColumn">Left click and drag</li>
+            <li class="leftColumn">Zoom:</li>
+            <li class="rightColumn">Scroll</li>
+            <li class="leftColumn">Pan:</li>
+            <li class="rightColumn">Right click and drag</li>
+          </ul>
+          <p>Don't forget, click on the 3D model when it glows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="refPageLink">
+      <a href="references.html">References</a>
+    </div>
+
+  </div>
+
+  
+
+    <div class="pageBreakMsg">
+      <p>To access this web page, view on a larger screen.</p>
+    </div>
+    
+    <script type="module" src="/src/pyramids.js"></script>
+  
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="styles.css"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1"></script>
+
+
+
+  </head>
+
+  
+  <body class="landingPage">
+    <div class="pageContent">
+    <canvas class="webglLanding"></canvas>
+    
+    <div id="container">
+        
+        
+         <section class="landingTitle">
+            <h1>The 7 Wonders of the Ancient World</h1>
+         </section>
+
+         <div class="spacer"></div>
+
+       
+         <section class="globeSection2">
+            <div class="globeText2">
+              <h2>Where do you want to go?</h2>
+            <ul>
+              <li><a href="index.html">The Great Pyramid of Giza</a></li>
+              <li><a href="artemis.html">The Temple of Artemis</a></li>
+              <li><a href="zeus.html">The Statue of Zeus at Olympia</a></li>
+              <li><a href="lighthouse.html">The Lighthouse of Alexandria</a></li>
+              <li><a href="rhodes.html">The Colossus of Rhodes</a></li>
+              <li><a href="halicarnassus.html">The Mausoleum of Halicarnassus</a></li>
+              <li><a href="babylon2.html">The Hanging Gardens of Babylon</a></li>
+            </ul>
+            </div>
+         </section>
+    </div>
+  </div>
+
+  <div class="pageBreakMsg">
+    <p>To access this web page, view on a larger screen.</p>
+  </div>      
+    
+    <script type="module" src="/src/landing2.js"></script>
+  </body>
+</html> -->

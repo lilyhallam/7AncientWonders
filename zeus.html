@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- google fonts icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"/>
+  </head>
+
+  <body>
+    <div class="pageContent">
+    <canvas class="webgl"></canvas>
+    <!-- :::::::::::::: NAV :::::::::::::: -->
+    <nav>
+      <ul>
+        <li><a href="pyramids.html" class="artemisNav">The Great Pyramid of Giza</a></li>
+        <li><a href="artemis.html" class="artemisNav">Temple of Artemis</a></li>
+        <li><a href="zeus.html" class="active">Statue of Zeus at Olympia</a></li>
+        <li><a href="lighthouse.html">Lighthouse of Alexandria</a></li>
+        <li><a href="rhodes.html">Colossus of Rhodes</a></li>
+        <li><a href="halicarnassus.html">Mausoleum at Halicarnassus</a></li>
+        <li><a href="babylon.html" class="babylonNav">Hanging Gardens of Babylon</a></li>
+      </ul>
+    </nav>
+    
+    <!-- :::::::::::::: LEFT TEXT :::::::::::::: -->
+    <div class="leftText">
+      <h2>The Statue of Zeus at Olympia</h2>
+      <ul>
+        <li>The Statue of Zeus was a large statue of the Greek god, Zeus who was the god of the sky as well as the ruler and protector of all gods and humans.</li>
+        <li>It was held in the large Temple of Zeus at Olympia in western Greece and was created by the sculptor Phidias in around 430 BC.</li>
+        <li>The statue stood for 1,000 years and was worshiped as the representation of Zeus, becoming the most famous and important statue in Greece.</li>
+        <li>However, the temple was destroyed in 426 AD and the statue was either destroyed then, or in a fire around 50 years later.</li>
+      </ul>
+        <button id="info-button" onclick="window.open('https://www.britannica.com/topic/Statue-of-Zeus', '_blank')">
+          Find out more <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+    </div>
+
+    <div id="app"></div>
+    <div class="popup">The model was clicked</div>       
+    
+    <!-- :::::::::::::: MODAL BUTTON :::::::::::::: -->
+    <button id="openModal" class="circle-button">
+      <span class="material-symbols-outlined">360</span>
+      <!-- <i class="fa-solid fa-rotate"></i> -->
+    </button>
+
+    <!-- :::::::::::::: MODAL :::::::::::::: -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <div class="modalText">
+          <h2>How to navigate</h2>
+          <ul>
+            <li class="leftColumn">Rotate:</li>
+            <li class="rightColumn">Left click and drag</li>
+            <li class="leftColumn">Zoom:</li>
+            <li class="rightColumn">Scroll</li>
+            <li class="leftColumn">Pan:</li>
+            <li class="rightColumn">Right click and drag</li>
+          </ul>
+          <p>Don't forget, click on the 3D model when it glows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="refPageLink">
+      <a href="references.html">References</a>
+    </div>
+    
+  </div>
+
+  <div class="pageBreakMsg">
+    <p>To access this web page, view on a larger screen.</p>
+  </div>
+
+    <script type="module" src="/src/zeus.js"></script>
+  </body>
+</html>

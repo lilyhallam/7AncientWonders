@@ -1,0 +1,597 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    z-index: -10;
+    background: #080821;
+    position: relative;
+    height: 100%;
+} 
+
+html {
+    overflow-x: hidden;         /*hides scroll bars*/
+    font-family: "Lexend", sans-serif;
+    height: 100vh;
+}
+
+/*PAGE WIDTH BREAK MESSAGE--------------------------------------------------------------*/
+
+.pageContent{
+    display: block;
+}
+
+.pageBreakMsg {
+    display: none;
+}
+
+@media (max-width: 1350px) {
+    body.landingPage {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .pageContent {
+        display: none;
+    }
+
+    .pageBreakMsg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 20vw;
+        height: 100vh; /* Full-screen */
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: white;
+        background-color: #080821;
+    }
+}
+
+/*BACKGROUND BLURRED SPOTS--------------------------------------------------------------*/
+
+.blurred-spot {
+    position: absolute;
+    background: #131353; /* Softer glow */
+    border-radius: 50%;
+    filter: blur(80px); /* More blur for smoother look */
+    opacity: 1;
+    z-index: -9;
+}
+
+/*3JS CANVAS--------------------------------------------------------------*/
+
+.webgl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;  /* Ensure it's behind content but above the gradient */
+    background: transparent;
+}
+
+.webglLanding {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;  /* Ensure it's behind content but above the gradient */
+    background: transparent;
+}
+
+/*NAV BAR--------------------------------------------------------------*/
+nav {                          
+    color: white;
+    z-index: 2;
+    position: relative;
+    padding: 2.5rem 2vw;
+    /* padding: 2.5rem 4rem 2.5rem 4rem;   top right bottom left */
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    display: inline-block;
+    width: 160px;
+    height: 50px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: normal;
+    /* background-color: indianred; */
+}
+
+nav a.artemisNav {
+    width: 154px;
+}
+
+nav a.babylonNav{
+    width: 161px;
+}
+
+nav a:hover {
+    font-weight: 800;
+}
+
+nav a.active {
+    font-weight: 800; 
+    border-bottom: 3px solid white;
+}
+
+/*LEFT TEXT--------------------------------------------------------------*/
+.leftText {
+    color: white;
+    z-index: 2;
+    position: absolute;
+    margin-left: 30px;
+    max-width: 300px;
+    line-height: 1.3;
+    font-size: 1.1rem;
+    /* background-color: cadetblue;  */
+}
+
+.leftText h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    /* background-color: lightsalmon; */
+}
+
+.leftText .pyramidH2 {
+    padding-right: 21px;
+}
+
+.leftText ul {
+    list-style-position: outside;
+    margin-left: 20px;
+    /* background-color: palevioletred; */
+}
+
+.leftText ul li {
+    margin-bottom: 8px;
+    /*background-color: lightgreen;*/
+}
+
+/* Halicarnassus left text styling */
+
+.leftTextHalicarnassus {
+    color: white;
+    z-index: 2;
+    position: absolute;
+    margin-left: 30px;
+    max-width: 305px;
+    line-height: 1.3;
+    font-size: 1.1rem;
+}
+
+.leftTextHalicarnassus h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    /* background-color: lightsalmon; */
+}
+
+.leftTextHalicarnassus ul {
+    list-style-position: outside;
+    margin-left: 20px;
+    /* background-color: palevioletred; */
+}
+
+.leftTextHalicarnassus ul li {
+    margin-bottom: 8px;
+    /*background-color: lightgreen;*/
+}
+
+
+/* external link buttons */
+
+#info-button {
+    display: flex; /* Ensures it sits on a new line */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 87%; /* Makes it match the column width */
+    padding: 10px 20px; /* Adjust padding for better appearance */
+    margin: 15px auto 0; /* Adds space between the text and button */
+
+    background-color: transparent; /* Button color */
+    color: white; /* Text color */
+
+    border: solid 4px white;
+    border-radius: 4px; /* Adds rounded corners */
+    font-size: 1.1rem; /* Increases text size */
+    font-weight: bold;
+    text-align: center;
+
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+#info-button:hover {
+    background-color: white; /* Darker shade on hover */
+    color: black;
+}
+
+#info-button i {
+    font-size: 1.2rem;
+}
+
+.external-link {
+    text-decoration: none;
+}
+
+
+/* REFERENCES LINK --------------------------------------------------------------*/
+
+.refPageLink a {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+.refPageLink a:hover {
+    color: #ccc;
+}
+
+/* REFERENCES PAGE --------------------------------------------------------------*/
+
+.refPageContent {
+    color: white;
+    z-index: 10;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+.refPageContent h2 {
+    font-size: 2rem;
+    padding-bottom: 20px;
+}
+
+.refPageContent ul li {
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+.refPageContent ul li a {
+    color: cornflowerblue;
+}
+
+
+/* INFORMATION POP UPS--------------------------------------------------------------*/
+
+ .popup {
+    position: absolute;
+    top: 140px;
+    right: 30px;
+    max-width: 300px;
+    max-height: 80vh;
+
+    /*background-color: pink;*/
+    color: white;
+    padding: 20px;
+    display: none;
+    font-size: 18px;
+    border: 4px solid white;
+    border-radius: 10px;
+    z-index: 2;
+} 
+
+.popup h2 {
+    margin-bottom: 10px;
+}
+
+.popup ul {
+    list-style-position: outside;
+    margin-left: 20px;
+    /*background-color: palevioletred;*/
+}
+
+.popup ul li {
+    margin-bottom: 8px;
+    /*background-color: lightgreen;*/
+}
+
+
+/*DEFINITION POP UPS--------------------------------------------------------------*/
+
+/*THE POP UPS*/
+.definition-popup {
+    position: absolute;
+    background-color: #131353;
+    outline: solid 4px white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    width: 200px;
+}
+
+.popup-text {
+    font-size: 1rem;
+    color: white;
+    padding-bottom: 15px;
+}
+
+.popup-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    padding-bottom: 8px;
+}
+
+/*THE CLICKABLE WORDS*/
+
+.clickable-word {
+    color: cornflowerblue;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.clickable-word:hover {
+    color: #4881EA;     /*#0056b3*/
+}
+
+
+/*CIRCULAR ARROW BUTTON--------------------------------------------------------------*/
+.circle-button {
+    z-index: 2;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    font-size: 24px;
+    border: 4px solid white;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    /*icon*/
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-button .material-symbols-outlined {
+    font-size: 35px;
+}
+
+/* google fonts icon */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/* font awesome icon */
+/* .circle-button i {
+    font-size: 26px;
+} */
+
+.circle-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.circle-button.active {
+    background-color: white;
+    color: black;
+}
+
+
+/*MODAL--------------------------------------------------------------*/
+.modal {
+    z-index: 2;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);   /*bacakground around the modal */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #080821;
+    outline: solid 6px white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 550px;
+}
+
+.modalText {
+    color: white;
+}
+
+.modalText h2 {
+    font-size: 2.5rem;
+    padding-bottom: 30px;
+    /* background-color: palevioletred; */
+}
+
+.modalText p {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    /* background-color: lightseagreen; */
+}
+
+.modalText ul {
+    display: grid;
+    grid-template-columns: 1.3fr 2fr;
+    /* gap: 10px; */
+    list-style-type: none;
+    padding: 0;
+    line-height: 2;
+    /* background-color: cornflowerblue; */
+}
+
+.modalText ul li {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    /* background-color: lightseagreen; */
+}
+
+.modalText ul li.leftColumn {
+    text-align: right;
+    margin-right: 10px;
+    font-weight: 800;
+    /* background-color: lightgreen; */
+}
+
+.modalText ul li.rightColumn {
+    text-align: left;
+    margin-left: 10px;
+    /* background-color: lightsalmon; */
+}
+
+.close {
+    position: absolute;
+    color: white;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/*LANDING PAGE--------------------------------------------------------------*/
+
+body.landingPage {
+    height: auto;
+    min-height: 400vh;
+    background: linear-gradient(to bottom, #080821, #191970);
+    background-size: 100% 400vh;
+    position: relative;
+}
+
+.landingPage {         /*body*/
+    min-height: 400vh;
+    background-attachment: fixed;
+    z-index: -10;
+}
+
+#container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    min-height: 400vh;
+    z-index: 1;
+}
+.landingTitle {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+    z-index: 1000;
+    min-height: 100vh;
+    width: 100%;
+    /* width: 60%; */
+    /* margin: 0 auto; */
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    /* padding: 20vw; */
+    /* background-color: lightpink; */
+}
+
+.spacer {
+    min-height: 200vh;
+    width: 100%;
+}
+
+/* LANDING 2 */
+
+.globeSection2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    z-index: 1000;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.globeText2 {
+    text-align: left;
+}
+
+.globeText2 h2 {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.globeText2 ul {
+    font-size: 2rem;
+    margin-left: 50px;
+    line-height: 70px;
+    list-style-type: none;
+}
+
+.globeText2 ul li {
+    width: 550px;
+    transition: padding-left 0.3s ease;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.globeText2 ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+   
+    width: 100%;
+}
+
+.globeText2 ul li:hover {
+    padding-left: 20px;
+    outline: solid 5px white;
+    border-radius: 5px; 
+}
+
+.globeText2 ul li a:hover {
+    color: white;
+}
+
+
